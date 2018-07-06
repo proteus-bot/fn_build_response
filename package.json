@@ -1,0 +1,27 @@
+{
+  "name": "fn_build_response",
+  "version": "1.0.0",
+  "description": "Cloud function for processing Discord message matches.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "cross-var gcloud beta functions deploy fn_build_response --trigger-topic=$PROTEUS_TOPIC_ON_PARSE_MESSAGE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proteus-bot/fn_build_response.git"
+  },
+  "author": "Daniel Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/proteus-bot/fn_build_response/issues"
+  },
+  "homepage": "https://github.com/proteus-bot/fn_build_response#readme",
+  "dependencies": {
+    "@google-cloud/datastore": "^1.4.1",
+    "@google-cloud/pubsub": "^0.19.0"
+  },
+  "devDependencies": {
+    "cross-var": "^1.1.0"
+  }
+}
