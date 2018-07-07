@@ -15,4 +15,6 @@ exports.fn_build_response = (event, callback) => {
   const matches = message.matches;
   
   console.log(`Matches for discord message ${discordMessageId}: ${JSON.stringify(matches)}`);
+
+  callback();
 };
