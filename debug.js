@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fn_build_response = require("./index").fn_build_response;
+const fn_build_response = require("./src/index").fn_build_response;
 
 const testData = JSON.parse(fs.readFileSync('./test/test1.json', 'utf8'));
 
