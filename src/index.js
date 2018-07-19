@@ -1,3 +1,6 @@
+const Datastore = require('@google-cloud/datastore');
+
+const datastore = new Datastore({});
 
 /**
  * Process Discord message matches.
@@ -13,8 +16,15 @@ exports.fn_build_response = (event, callback) => {
   
   const discordMessageId = message.discordMessageId;
   const matches = message.matches;
-  
-  console.log(`Matches for discord message ${discordMessageId}: ${JSON.stringify(matches)}`);
 
-  callback();
+  const query = datastore.createQuery('Response');
+
+  query.run().then(data => {
+    const responses = data[0];
+
+    callback();
+  }).catch(err => {
+    console.error(`Query failed: ${err}`);
+    callback();
+  });
 };
